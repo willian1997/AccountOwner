@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountOwnerServer", "Accou
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts", "Contracts\Contracts.csproj", "{BD219653-53F2-4CDE-945F-E0FB44BDCBE5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggerService", "LoggerService\LoggerService.csproj", "{EB0EBF24-B2B2-4086-A371-8C0845284E24}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{BD219653-53F2-4CDE-945F-E0FB44BDCBE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD219653-53F2-4CDE-945F-E0FB44BDCBE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD219653-53F2-4CDE-945F-E0FB44BDCBE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB0EBF24-B2B2-4086-A371-8C0845284E24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB0EBF24-B2B2-4086-A371-8C0845284E24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB0EBF24-B2B2-4086-A371-8C0845284E24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB0EBF24-B2B2-4086-A371-8C0845284E24}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
