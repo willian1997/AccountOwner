@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Contracts;
 
 namespace AccountOwnerServer.Controllers;
 
@@ -6,27 +7,25 @@ namespace AccountOwnerServer.Controllers;
 [Route("[controller]")]
 public class WeatherForecastController : ControllerBase
 {
-    private static readonly string[] Summaries = new[]
-    {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
+    private readonly ILoggerManager _logger;
 
-    private readonly ILogger<WeatherForecastController> _logger;
-
-    public WeatherForecastController(ILogger<WeatherForecastController> logger)
+    public WeatherForecastController(ILoggerManager logger)
     {
         _logger = logger;
     }
 
-    [HttpGet(Name = "GetWeatherForecast")]
-    public IEnumerable<WeatherForecast> Get()
-    {
-        return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+    [HttpGet]
+    public IEnumerable<string> Get()
+    {   
+        _logger.LogInfo("Testanto log de INFO");
+        _logger.LogDebug("Testanto log de Debug");
+        _logger.LogError("Testanto log de erro");
+        _logger.LogWarn("Testanto log de aviso" );
+        
+        return new string[]
         {
-            Date = DateTime.Now.AddDays(index),
-            TemperatureC = Random.Shared.Next(-20, 55),
-            Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-        })
-        .ToArray();
+            "value1",
+            "value2"
+        };
     }
 }
