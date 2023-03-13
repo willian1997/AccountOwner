@@ -6,16 +6,15 @@ namespace Entities.Models;
 [Table("account")]
     public class Account
     {
-        [Key]
-
-        public Guid AccountId { get; set; }
+        [Column("AccountId")]
+        public Guid Id { get; set; }
 
         [Required]
-        public string? AccountType { get; set; }
+        public string AccountType { get; set; }
 
         [ForeignKey(nameof(Owner))]
 
         public Guid OwnerId { get; set; }
 
-        public Owner? Owner { get; set; }
+        public Owner Owner { get; set; }
     }

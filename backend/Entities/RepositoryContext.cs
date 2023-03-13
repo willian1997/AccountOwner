@@ -9,6 +9,6 @@ namespace Entities;
         public RepositoryContext(DbContextOptions options): base(options)
         {
         }
-        public DbSet<Owner>? Owners {get; set; }
-        public DbSet <Account>? Account { get; set; }
+        public DbSet<Owner> Owners {get; set; }
+        public DbSet <Account> Account { get; set; }
     }
