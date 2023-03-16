@@ -1,12 +1,17 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace AccountOwnerServer
+using AutoMapper;
+using Entities.DataTransferObjects;
+using Entities.Models;
+public class MappingProfile : Profile
 {
-    public class MappingProfile
+    public MappingProfile()
     {
+        CreateMap<Owner, OwnerDto>();
+
+        CreateMap<Account, AccountDto>();
+
+        CreateMap<OwnerForCreationDto, Owner>();
         
+        CreateMap<OwnerForUpdateDto, Owner>();
+
     }
 }
