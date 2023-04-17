@@ -3,6 +3,7 @@ import { OwnerRepositoryService } from 'src/app/shared/services/owner-repository
 import { Owner } from 'src/app/_interfaces/owner.model';
 import { ErrorHandlerService } from 'src/app/shared/services/error-handler.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-owner-list',
@@ -13,7 +14,7 @@ export class OwnerListComponent implements OnInit{
   owners: Owner[];
   errorMessage: string = '';
 
-  constructor(private repo: OwnerRepositoryService, private errorHandler: ErrorHandlerService) {}
+  constructor(private repo: OwnerRepositoryService, private errorHandler: ErrorHandlerService, private router: Router) {}
 
   ngOnInit(): void {
     this.getAllOwner();
@@ -30,4 +31,9 @@ export class OwnerListComponent implements OnInit{
        }
      })
   }
+  public getOwnerDetails = (id) => {
+    const detailsUrl: string = `/owner/details/${id}`;
+    this.router.navigate([detailsUrl]);
+    }
+    
 }
