@@ -6,9 +6,9 @@ import { Router } from '@angular/router';
 import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
 import { Owner } from 'src/app/_interfaces/owner.model';
 import { OwnerForCreation } from 'src/app/_interfaces/ownerForCreation.model';
-import { SuccessModalComponent } from 'src/app/shared/modals/success-modal/successmodal.component';
 import { ErrorHandlerService } from 'src/app/shared/services/error-handler.service';
 import { OwnerRepositoryService } from 'src/app/shared/services/owner-repository.service';
+import { SuccessModalComponent } from 'src/app/shared/modals/success-modal/success-modal.component';
 
 
 @Component({
@@ -21,9 +21,10 @@ export class OwnerCreateComponent implements OnInit {
   errorMessage: string = '';
   ownerForm: FormGroup;
   bsModalRef?: BsModalRef;
-  constructor(private repository: OwnerRepositoryService, private errorHandler:
-    ErrorHandlerService,
+
+  constructor(private repository: OwnerRepositoryService, private errorHandler: ErrorHandlerService,
     private router: Router, private datePipe: DatePipe, private modal: BsModalService) { }
+
   ngOnInit(): void {
     this.ownerForm = new FormGroup({
       name: new FormControl('', [Validators.required, Validators.maxLength(60)]),
@@ -35,12 +36,14 @@ export class OwnerCreateComponent implements OnInit {
   validateControl = (controlName: string) => {
     if (this.ownerForm.get(controlName).invalid && this.ownerForm.get(controlName).touched)
       return true;
+
     return false;
   }
 
   hasError = (controlName: string, errorName: string) => {
     if (this.ownerForm.get(controlName).hasError(errorName))
       return true;
+
     return false;
   }
 
@@ -56,9 +59,7 @@ export class OwnerCreateComponent implements OnInit {
       address: ownerFormValue.address
     }
 
-    redirectToOwnerList = () => {
-      this.router.navigate(['/owner/list']);
-    }
+
 
     const apiUrl = 'api/owner';
     this.repository.createOwner(apiUrl, owner)
@@ -80,5 +81,10 @@ export class OwnerCreateComponent implements OnInit {
         }
       })
   }
+
+  redirectToOwnerList = () => {
+    this.router.navigate(['/owner/list']);
+    }
+    
 
 }
