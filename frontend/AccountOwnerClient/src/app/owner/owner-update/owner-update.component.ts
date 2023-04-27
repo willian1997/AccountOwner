@@ -6,9 +6,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
 import { Owner } from 'src/app/_interfaces/owner.model';
 import { OwnerForUpdate } from 'src/app/_interfaces/ownerForUpdate.model';
-import { SuccessModalComponent } from 'src/app/shared/modals/success-modal/successmodal.component';
 import { ErrorHandlerService } from 'src/app/shared/services/error-handler.service';
 import { OwnerRepositoryService } from 'src/app/shared/services/owner-repository.service';
+import { SuccessModalComponent } from 'src/app/shared/modals/success-modal/success-modal.component';
 
 @Component({
   selector: 'app-owner-update',
@@ -23,7 +23,7 @@ export class OwnerUpdateComponent implements OnInit {
     ErrorHandlerService,
     private router: Router, private activeRoute: ActivatedRoute, private datePipe: DatePipe,
     private modal: BsModalService) { }
-}
+
 
 ngOnInit(): void {
   this.ownerForm = new FormGroup({
@@ -33,7 +33,7 @@ ngOnInit(): void {
   });
   this.getOwnerById();
 }
-  private getOwnerById = () => {
+    private getOwnerById = () => {
   const ownerId: string = this.activeRoute.snapshot.params['id'];
   const ownerByIdUri: string = `api/owner/${ownerId}`;
   this.repository.getOwner(ownerByIdUri)
@@ -89,4 +89,5 @@ public updateOwner = (ownerFormValue) => {
 }
   public redirectToOwnerList = () => {
   this.router.navigate(['/owner/list']);
+  } 
 }
